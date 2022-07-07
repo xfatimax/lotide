@@ -1,6 +1,6 @@
 
 
-function eqArrays(arr1, arr2) {
+function assertArraysEqual(arr1, arr2) {
   if(arr1.length != arr2.length) {
       return false;
   } 
@@ -24,4 +24,4 @@ function eqArrays(arr1, arr2) {
  
 };
 
-eqArrays([1, 2, 3], [1, 2, 3]); 
+assertArraysEqual([1, 2, 3], [1, 2, 3]); 
