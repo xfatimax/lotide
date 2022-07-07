@@ -1,27 +1,24 @@
 
-
-function assertArraysEqual(arr1, arr2) {
-  if(arr1.length != arr2.length) {
-      return false;
+function assertArraysEqual(actual, expected) {
+  if(actual.length != expected.length) {
+    return false;
   } 
   else { 
       let result = false;
-      for(let i=0; i <arr1.length; i++) {
-
-          if(arr1[i] != arr2[i]) {
-              return false;
-          }
-          else {
-              result = true;
-          }
+      for(let i=0; i <actual.length; i++) {
+        if(actual[i] != expected[i]) {
+          return false;
+        }
+        else {
+          result = true;
+        }
       }
       if (result === true) {
-        console.log("The arrays are equal"); }
+        console.log(`✅  Assertion passed: ${actual} === ${expected}`); }
       else {
-        console.log("The arrays are not equal"); 
+        console.log(`🛑  Assertion failed: ${actual} !== ${expected}`); 
       }
   }
- 
 };
 
 assertArraysEqual([1, 2, 3], [1, 2, 3]); 
