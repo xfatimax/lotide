@@ -8,17 +8,18 @@ const assertEqual = function(actual, expected) {
 };
 
 const countLetters = function(str) {
-  let x = {};
+  const tally = {};
+  const splitArray = str.split(" ");
+  const joinArray = splitArray.join('');
   
-  str.split('').forEach(e => {
-    x[e] = 0;
-  });
-
-  str.split('').forEach(letter => {
-    x[letter] ++;
-  });
-
-  return x;
+  for (const char of joinArray) {
+   if (tally[char]) {
+     tally[char] += 1;
+   } else {
+     tally[char] = 1;
+   }
+  }
+  return tally;
 };
 
 console.log(countLetters("fatima"));
