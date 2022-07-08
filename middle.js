@@ -4,7 +4,7 @@ function eqArrays(arr1, arr2) {
   } 
   else { 
       let result = false;
-      for(let i=0; i <arr1.length; i++) {
+      for(let i=0; i < arr1.length; i++) {
 
           if(arr1[i] != arr2[i]) {
               return false;
@@ -17,41 +17,45 @@ function eqArrays(arr1, arr2) {
   }
 }
 
-function assertArraysEqual(arr1, arr2) {
-  if(arr1.length != arr2.length) {
-      return false;
+const assertArraysEqual= function (actual, expected) {
+  if (actual.length != expected.length) {
+    return false;
   } 
   else { 
       let result = false;
-      for(let i=0; i <arr1.length; i++) {
-
-          if(arr1[i] != arr2[i]) {
-              return false;
-          }
-          else {
-              result = true;
-          }
+      for (let i = 0; i < actual.length; i++) {
+        if(actual[i] !== expected[i]) {
+          return false;
+        }
+        else {
+          result = true;
+        }
       }
       if (result === true) {
-        console.log("The arrays are equal"); }
+        console.log(`✅  Assertion passed: ${actual} === ${expected}`); }
       else {
-        console.log("The arrays are not equal"); 
+        console.log(`🛑  Assertion failed: ${actual} !== ${expected}`); 
       }
   }
- 
-};
+}
 
 const middle = function(array) {
   let length = array.length;
+  //let newArr = [];
+  //let middleChar = ""; 
 
   if (length < 3) {
     return [];
   } else if (length % 2 === 0) { 
-    return [array[Math.round(length / 2) - 1], array[Math.round(length / 2)]];
+    let middleChar = (length / 2);
+    console.log (array.slice(middleChar -1 , middleChar + 1));
 
-  } else if (length % 2 === 1) { 
-    return [array[Math.floor(length / 2)]];
+  } else {
+  let middleChar = Math.round(length / 2);
+  let newArr = [];
+  newArr.push(array[middleChar - 1]);
+  console.log (newArr);
   }
 };
-middle([1, 2, 3, 4]) // => [2, 3]
-middle([1, 2, 3, 4, 5, 6]) // => [3, 4]
+assertArraysEqual(middle([1, 2, 3]), 2); // => [2, 3]
+assertArraysEqual(middle([1, 2, 3, 4, 6]), 3); // => [3, 4]
