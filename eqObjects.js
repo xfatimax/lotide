@@ -13,7 +13,7 @@ function eqArrays(arr1, arr2) {
   else { 
       let result = false;
       for(let i=0; i <arr1.length; i++) {
-
+        
           if(arr1[i] != arr2[i]) {
               return false;
           }
@@ -33,23 +33,36 @@ const eqObjects = function(object1, object2) {
     return false;
   } else {
     for (let k in object1) {
-      if (object1[k] instanceof Object) {
-        if (!eqObjects(object1[k], object2[k])) {
-          return false;
+      if (Array.isArray(object1[k]) && Array.isArray(object2[k])) {
+        let arrayCheck = eqArrays(object1[k], object2[k]);
+        if (arrayCheck === true) {
+          return true;
+        }
+
+        if ((object1[k] === object2[k])) {
+          return true;
         }
       } else {
-        if (object1[k] !== object2[k]) {
+      //if (object1[k] !== object2[k]); {
           return false;
         }
       }
     }
     return true;
   }
-};
 
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba),true); // => true
 
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc),false); // => false
+
+// const ab = { a: "1", b: "2" };
+// const ba = { b: "2", a: "1" };
+// assertEqual(eqObjects(ab, ba),true); // => true
+
+// const abc = { a: "1", b: "2", c: "3" };
+// assertEqual(eqObjects(ab, abc),false); // => false
+
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
+assertEqual(eqObjects(cd, dc),true); // => true
+
+const cd2 = { c: "1", d: ["2", 3, 4] };
+assertEqual(eqObjects(cd, cd2),false); // => false
