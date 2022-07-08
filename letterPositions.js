@@ -1,15 +1,3 @@
-const letterPositions = function(sentence) {
-  const results = {};
-  // logic to update results here
-  str.split('').forEach(letter => {
-    out[letter] = [];
-  });
-
-  for (let i = 0; i < str.length; i++) {
-    out[str[i]].push(i);
-  }
-  return results;
-};
 
 function assertArraysEqual(arr1, arr2) {
   if(arr1.length != arr2.length) {
@@ -32,7 +20,6 @@ function assertArraysEqual(arr1, arr2) {
         console.log("The arrays are not equal"); 
       }
   }
- 
 };
 
 function eqArrays(arr1, arr2) {
@@ -54,4 +41,23 @@ function eqArrays(arr1, arr2) {
   }
 }
 
-assertArraysEqual(letterPositions("hello").e, [1]);
+const letterPositions = function(sentence) {
+  const results = {};
+  // logic to update results here
+  // const splitArray = sentence.split(" ");
+  // const joinArray = splitArray.join('')
+ 
+  for (let i = 0; i < sentence.length; i++) {
+    if (!results[sentence[i]]) { 
+      results[sentence[i]] = [i];
+    } else {
+      results[sentence[i]].push(i);
+    }
+}
+return results;
+}
+
+
+//assertArraysEqual(letterPositions("hi").e, [1]);
+console.log(letterPositions("hello"));
+
