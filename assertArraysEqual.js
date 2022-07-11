@@ -21,4 +21,4 @@ function assertArraysEqual(actual, expected) {
   }
 };
 
-assertArraysEqual([1, 2, 3], [1, 2, 3]); 
+module.exports = assertArraysEqual;
