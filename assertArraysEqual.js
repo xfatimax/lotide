@@ -1,5 +1,5 @@
 
-function assertArraysEqual(actual, expected) {
+const assertArraysEqual = function (actual, expected) {
   if(actual.length != expected.length) {
     return false;
   } 
