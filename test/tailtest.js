@@ -1,5 +1,6 @@
-//const tail = require('../tail');
 const assertEqual = require('../assertEqual');
+
+const tail = require('../tail');
 
 assertEqual(tail.length, 2);
 assertEqual(tail[0], "Lighthouse");
